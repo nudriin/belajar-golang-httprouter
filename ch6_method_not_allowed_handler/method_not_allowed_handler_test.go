@@ -14,8 +14,8 @@ import (
 func TestMethodNotAllowedHandler(t *testing.T) {
 	router := httprouter.New()
 
-	// ! Membuat not found handler
-	// ! Apablia status code error 404 atau file tidak ketemu maka function ini akan di eksekusi
+	// ! Membuat method not allowed handler
+	// ! Apabila method yang di gunakan berbeda dan tidak match maka function ini akan di eksekusi
 	router.MethodNotAllowed = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "Method ", r.Method, " Tidak di izinkan untuk handler ini")
 	})
